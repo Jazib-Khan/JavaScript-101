@@ -66,24 +66,24 @@ let new_array = [1, 5, 4 , 3, 2, 654, 12, 543] // array
 let i = 0
 let length = new_array.length // length of the array is 8
 
-// while( i < length) { // while loop: while loops have 1 argument passed in
-//     console.log('value at ', i, ' is ', new_array[i])
-//     i++
-// }
+while( i < length) { // while loop: while loops have 1 argument passed in
+    console.log('value at ', i, ' is ', new_array[i])
+    i++
+}
 
-// for (let j = 0; j < length; j++ ) { // for loop: they allow for multiple arguments to be passed in
-//     console.log('value at ', j, ' is ', new_array[j])
-// }
+for (let j = 0; j < length; j++ ) { // for loop: they allow for multiple arguments to be passed in
+    console.log('value at ', j, ' is ', new_array[j])
+}
 
-// for (let j = 0; j < length; j++ ) { // check if j is equal by doing remainder division by 2 and checking if the remainder is 0
+for (let j = 0; j < length; j++ ) { // check if j is equal by doing remainder division by 2 and checking if the remainder is 0
     
-//     if (j % 2 === 0) {
-//         continue // skip the rest of the loop and go to the next iteration
-//         //break // break out of the loop
-//     }
-//     console.log('value at ', j, ' is ', new_array[j])
+    if (j % 2 === 0) {
+        continue // skip the rest of the loop and go to the next iteration
+        //break // break out of the loop
+    }
+    console.log('value at ', j, ' is ', new_array[j])
 
-// }
+}
 
 function addStrings(string1 = 'default1', string2 = 'default2') {
     
