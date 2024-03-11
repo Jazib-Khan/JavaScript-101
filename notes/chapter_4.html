@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Practice</title>
+    <script src="chapter_2.js" defer></script>
+</head>
+<body>
+    
+    <h1 id="main-title">DOM Manipulation</h1>
+
+    <form id="form-example" onsubmit="return handleSubmitform(event)"> <!-- add event listener to the form -->
+        <label for="name">Name:</label> <!-- add label for name input -->
+        <input type="text" id="name" name="name"><br><br> <!-- add name input -->
+        <label for="age">Age:</label> <!-- add label for age input -->
+        <input type="number" id="age" name="age"><br><br> <!-- add age input -->
+        <input type="submit" value="Submit"> <!-- add submit button -->
+    </form>
+
+    <button id="open-modal-btn">Open Modal</button> <!-- add button to open modal -->
+
+    <div id="content-area"></div> <!-- add content area -->
+
+    <textarea id="text-area" rows="4" cols="50">Type some text...</textarea> <!-- add text area -->
+
+    <div id="modal" class="modal" style="display: none;"> <!-- add modal -->
+        <div class="modal-content"> <!-- add modal content -->
+            <span class="close">&times;</span> <!-- add x button -->
+            <p>Some text in the Modal..</p> <!-- add some text -->
+            <button id="close-modal-btn">Close Modal</button> <!-- add button to close modal -->
+        </div>
+    </div>
+
+    <script>
+
+        let modalBtn = document.getElementById('open-modal-btn') // get the button
+        let closeModalBtn = document.getElementById('close-modal-btn') // get the button
+        let modal = document.getElementById('modal') // get the modal
+        let xBtn = document.querySelector('.close') // get the x button
+        let textArea = document.getElementById('text-area') // get the text area
+        let nameInput = document.getElementById('name') // get the name input
+        let ageInput = document.getElementById('age') // get the age input
+
+        let contentArea = document.getElementById('content-area') // get the content area
+
+        contentArea.innerHTML = '<h1>Hi mom </h1>' // set the content area to a new h1
+        let newHTML = document.querySelector('#content-area h1') // get the new h1
+        newHTML.style.background = 'yellow' // change the background color
+        newHTML.style.color = 'pink' // change the text color
+        newHTML.style.padding = '100px' // change the padding
+
+        function handleOpenModal() { // open the modal
+            console.log(textArea.value) // log the text area value
+            modal.style.display = 'flex' // show the modal
+            textArea.value = 'hi dad' // set the text area to 'hi dad'
+        }
+
+        modalBtn.addEventListener('click', handleOpenModal) // add event listener to the button
+
+        function handleCloseModal() {
+            modal.style.display = 'none' // hide the modal
+        }
+
+        closeModalBtn.addEventListener('click', handleCloseModal) // add event listener to the button
+        xBtn.addEventListener('click', handleCloseModal) // add event listener to the x button
+
+        function handleSubmitform(event) {
+            event.preventDefault() // prevent the form from submitting
+            console.log('submitted') // log 'submitted'
+            console.log('name: ', nameInput.value) // log the name input value
+            console.log('age: ', ageInput.value) // log the age input value
+        }
+
+    </script>
+
+</body>
+</html>
